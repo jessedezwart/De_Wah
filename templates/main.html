@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style>
+        img {cursor: pointer}
+    </style>
+
+
+    <title>De WAH</title>
+  </head>
+  <body>
+  <div id="container">
+      <div class="row">
+          <div class="col-sm"></div>
+          <div class="col-sm">
+    <h1>De WAH!</h1>
+    <img style="height:100px; width: 100px" onclick="setLinks()" id="knopLinks" src="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/png/arrow-left-8x.png"></img>
+    <img style="height:100px; width: 100px" onclick="setMidden()" id="knopMidden" src="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/png/arrow-top-8x.png"></img>
+    <img style="height:100px; width: 100px" onclick="setRechts()" id="knopRechts" src="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/png/arrow-right-8x.png"></img>
+    <br><br>
+    <img style="margin-left:100px; height:100px; width: 100px" onclick="gaan()" src="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/png/flash-8x.png"></img>
+          </div>
+          <div class="col-sm"></div>
+          </div>
+      </div>
+    <script>
+        var richting = "midden";
+
+        function setLinks() {
+            richting = "links";
+            document.getElementById("knopLinks").style.borderStyle = "Solid";
+            document.getElementById("knopMidden").style.borderStyle = "None";
+            document.getElementById("knopRechts").style.borderStyle = "None";
+        }
+
+        function setMidden() {
+            richting = "midden";
+            document.getElementById("knopLinks").style.borderStyle = "None";
+            document.getElementById("knopMidden").style.borderStyle = "Solid";
+            document.getElementById("knopRechts").style.borderStyle = "None";
+        }
+
+        function setRechts() {
+            richting = "rechts";
+            document.getElementById("knopLinks").style.borderStyle = "None";
+            document.getElementById("knopMidden").style.borderStyle = "None";
+            document.getElementById("knopRechts").style.borderStyle = "Solid";
+        }
+
+        function gaan() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("demo").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("GET", richting, true);
+            xhttp.send();
+
+            alert("WAH! We zijn onderweg!")
+        }
+    </script>
+
+  </body>
+</html>
